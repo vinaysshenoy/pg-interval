@@ -51,13 +51,16 @@ async function main() {
     await ensureTableExists()
 
     const randomDuration = Duration.fromMillis(Math.random() * 100000)
-    
-    let savingSucceeded = false
-    // savingSucceeded = await saveDurationFailing(randomDuration)
-    savingSucceeded = await saveDurationSucceeding(randomDuration)
 
-    if (savingSucceeded) {
+    console.log(process.argv)
+
+    const succeedingOperation = process.argv.length >= 3 ? process.argv[2] === '-succeeding' : false
+
+    if (succeedingOperation) {
+        await saveDurationSucceeding(randomDuration)
         await printAllRows()
+    } else {
+        await saveDurationFailing(randomDuration)
     }
 
     db.$config.pgp.end()
