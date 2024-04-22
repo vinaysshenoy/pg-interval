@@ -6,6 +6,7 @@
   "scripts": {
     "spinUp": "docker compose up --remove-orphans --wait --pull missing",
     "tearDown": "docker compose down",
+    "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
