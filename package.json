@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "spinUp": "docker compose up --remove-orphans --wait --pull missing",
-    "tearDown": "docker compose down",
+    "tearDown": "docker compose down --volumes",
     "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "luxon": "^3.4.4",
     "pg-promise": "^11.6.0"
   }
 }
